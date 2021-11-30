@@ -1,5 +1,6 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import LogoLightImg from '../../images/logo-light.png';
+import Container from './Container';
 
 const Navbar = () => {
   const links = [
@@ -19,10 +20,14 @@ const Navbar = () => {
 
   return (
     <nav className=''>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      <Container>
         <div className='flex justify-between items-center'>
           <div>
-            <img className='w-12' src={LogoLightImg} alt='Logo' />
+            <StaticImage
+              className='w-12'
+              src='../../images/logo-light.png'
+              alt='Logo'
+            />
           </div>
 
           <div>
@@ -35,7 +40,7 @@ const Navbar = () => {
             </ul>
           </div>
         </div>
-      </div>
+      </Container>
     </nav>
   );
 };
