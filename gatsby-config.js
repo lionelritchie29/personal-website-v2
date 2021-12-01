@@ -4,6 +4,7 @@ module.exports = {
     title: 'Personal Portfolio',
   },
   plugins: [
+    'gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
