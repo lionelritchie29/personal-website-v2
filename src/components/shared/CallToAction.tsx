@@ -20,7 +20,7 @@ const CallToAction: React.FC<Props> = ({ text, icon, className }) => {
     <section
       className={`w-full border-t border-b px-4 py-8 border-gray-300  dark:border-gray-600 flex ${className}`}>
       {renderIcon}
-      <div className='w-full md:flex md:justify-center md:items-center p-2 bg-primary-light text-primary dark:bg-gray-700 dark:text-gray-200 rounded ml-2'>
+      <div className='w-full md:flex md:justify-center md:items-center p-2 bg-primary-lighter text-primary dark:bg-gray-700 dark:text-gray-200 rounded ml-2'>
         {text}
       </div>
     </section>

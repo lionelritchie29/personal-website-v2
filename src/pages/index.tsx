@@ -18,7 +18,7 @@ const IndexPage = () => {
           Latest Article
         </h2>
 
-        <div className='w-full h-60 bg-primary-light mt-2 dark:bg-gray-700 dark:text-gray-200 p-5 flex justify-center items-center rounded-md'>
+        <div className='w-full h-60 bg-primary-lighter mt-2 dark:bg-gray-700 dark:text-gray-200 p-5 flex justify-center items-center rounded-md'>
           Coming Soon
         </div>
       </section>
@@ -30,11 +30,11 @@ const IndexPage = () => {
       />
 
       <section className='mt-4 pb-12'>
-        <h2 className='font-display font-bold text-2xl dark:text-white'>
+        <h2 className='font-display font-bold text-2xl text-primary dark:text-white'>
           Latest Projects
         </h2>
 
-        <div className='w-full h-60 bg-primary-light mt-2 dark:bg-gray-700 dark:text-gray-200 p-5 flex justify-center items-center rounded-md'>
+        <div className='w-full h-60 bg-primary-lighter text-primary mt-2 dark:bg-gray-700 dark:text-gray-200 p-5 flex justify-center items-center rounded-md'>
           Coming Soon
         </div>
       </section>

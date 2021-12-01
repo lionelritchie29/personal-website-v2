@@ -10,6 +10,8 @@ const ThemeProvider: React.FC = ({ children }) => {
     const theme = localStorage.getItem('theme');
     if (theme) {
       setTheme(localStorage.getItem('theme'));
+    } else {
+      setTheme('light');
     }
   }, []);
 

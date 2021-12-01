@@ -9,11 +9,11 @@ const Header: React.FC = () => {
       </h1>
 
       <p className='mt-4 dark:text-white'>
-        Currently a <b>computer science student</b> and <b>teaching</b> various
-        computer-science related course, also responsible as a{' '}
-        <b>Research and Development </b>
-        for maintaining web-based application system at Software Laboratory
-        Center.
+        Currently a <b>computer science student</b> and responsible as a{' '}
+        <b>Research and Development</b> for maintaing web-based application
+        system at <b>Software Laboratory Center</b> Binus University. I also{' '}
+        <b>teach</b> various computer-science related course such as Data
+        Structure, Database, Operating System, etc.
       </p>
 
       <p className='mt-3 dark:text-white'>
