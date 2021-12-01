@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import Container from './Container';
 import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import { ThemeContext } from '../../providers/ThemeProvider';
+import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 
 const Navbar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
@@ -45,24 +46,25 @@ const Navbar = () => {
           <div>
             <ul className='flex'>
               {links.map((link) => (
-                <li className='ml-3 text-black font-semibold dark:text-white'>
+                <li className='ml-2 text-black font-semibold dark:text-white'>
                   <a href=''>{link.title}</a>
                 </li>
               ))}
 
               <ThemeToggler>
                 {({ theme, toggleTheme }) => (
-                  <label className='block ml-3 dark:text-white'>
-                    <input
-                      type='checkbox'
-                      onChange={(e) => {
-                        setTheme(e.target.checked ? 'dark' : 'light');
-                        toggleTheme(e.target.checked ? 'dark' : 'light');
-                      }}
-                      checked={theme === 'dark'}
-                    />{' '}
-                    {theme === 'dark' ? 'Dark' : 'Light'}
-                  </label>
+                  <button
+                    className='ml-1 text-blue-500 dark:text-yellow-300 px-2'
+                    onClick={() => {
+                      setTheme(theme === 'light' ? 'dark' : 'light');
+                      toggleTheme(theme === 'light' ? 'dark' : 'light');
+                    }}>
+                    {theme === 'light' ? (
+                      <MoonIcon className='w-5 h-5' />
+                    ) : (
+                      <SunIcon className='w-5 h-5' />
+                    )}
+                  </button>
                 )}
               </ThemeToggler>
             </ul>
