@@ -1,10 +1,11 @@
 import * as React from 'react';
+import Header from '../components/home/Header';
 import Layout from '../components/shared/Layout';
 
 const IndexPage = () => {
   return (
     <Layout>
-      <h1 className='text-red-600'>Test</h1>
+      <Header />
     </Layout>
   );
 };
