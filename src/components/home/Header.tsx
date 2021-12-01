@@ -4,7 +4,7 @@ import OutlineButton from '../shared/OutlineButton';
 const Header: React.FC = () => {
   return (
     <section className='pt-6 px-3 md:px-0'>
-      <h1 className='font-bold text-4xl font-display text-primary dark:text-primary-dark'>
+      <h1 className='font-bold text-3xl font-display text-primary dark:text-primary-dark'>
         Hi there, <br /> I'm Lionel
       </h1>
 

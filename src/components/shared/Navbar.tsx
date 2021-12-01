@@ -46,7 +46,7 @@ const Navbar = () => {
           <div>
             <ul className='flex'>
               {links.map((link) => (
-                <li className='ml-2 text-black font-semibold dark:text-white'>
+                <li className='ml-2 md:ml-3 text-black font-semibold dark:text-white'>
                   <a href=''>{link.title}</a>
                 </li>
               ))}
@@ -54,7 +54,7 @@ const Navbar = () => {
               <ThemeToggler>
                 {({ theme, toggleTheme }) => (
                   <button
-                    className='ml-1 text-blue-500 dark:text-yellow-300 px-2'
+                    className='ml-1 md:ml-2 text-blue-500 dark:text-yellow-300 px-2'
                     onClick={() => {
                       setTheme(theme === 'light' ? 'dark' : 'light');
                       toggleTheme(theme === 'light' ? 'dark' : 'light');

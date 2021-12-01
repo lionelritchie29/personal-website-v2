@@ -11,6 +11,10 @@
     border-color: #59738d;
   }
 
+  .bg-primary-light {
+    background-color: #b6cade;
+  }
+
   @variants dark {
     .border-primary-dark {
       border-color: #ffc25c;
