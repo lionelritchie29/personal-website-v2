@@ -5,6 +5,7 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode';
 import { ThemeContext } from '../../providers/ThemeProvider';
 import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 import Headroom from 'react-headroom';
+import { Link } from 'gatsby';
 
 const Navbar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
@@ -12,15 +13,19 @@ const Navbar = () => {
   const links = [
     {
       title: 'Home',
+      path: '/',
     },
     {
       title: 'Blog',
+      path: '/blog',
     },
     {
-      title: 'Works',
+      title: 'Projects',
+      path: '/projects',
     },
     {
       title: 'About',
+      path: '/about',
     },
   ];
 
@@ -48,8 +53,10 @@ const Navbar = () => {
             <div>
               <ul className='flex'>
                 {links.map((link) => (
-                  <li className='ml-2 md:ml-3 text-black font-semibold dark:text-white'>
-                    <a href=''>{link.title}</a>
+                  <li
+                    key={link.title}
+                    className='ml-2 md:ml-3 text-black font-semibold dark:text-white'>
+                    <Link to={link.path}>{link.title}</Link>
                   </li>
                 ))}
 
