@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.yourdomain.tld',
-    title: 'Personal Portfolio',
+    siteUrl: 'https://www.lionelritchie.gatsbyjs.io',
+    title: 'Lionel Personal Portfolio',
   },
   plugins: [
     'gatsby-plugin-dark-mode',
@@ -9,6 +9,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-mdx',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -16,6 +17,14 @@ module.exports = {
         path: './src/images/',
       },
       __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'blog',
+        path: './src/data/blog/',
+      },
+      __key: 'blog',
     },
   ],
 };
