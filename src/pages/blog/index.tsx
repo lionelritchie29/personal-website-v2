@@ -1,25 +1,26 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 import Layout from '../../components/shared/Layout';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
+import BlogPostCard from '../../components/blog/BlogPostCard';
 
 const BlogPage: React.FC<any> = ({ data }) => {
   return (
     <Layout>
-      <ul>
-        {data.allMdx.nodes.map((d) => (
-          <article key={d.id}>
-            <div>
-              <h2>{d.frontmatter.title}</h2>
-              <div>Posted on {d.frontmatter.date}</div>
-            </div>
+      <section className='py-6'>
+        <div className='mb-10'>
+          <BlogPostCard
+            key={data.allMdx.nodes[0].id}
+            post={data.allMdx.nodes[0]}
+            isFirst={true}
+          />
+        </div>
 
-            <div>
-              <MDXRenderer>{d.body}</MDXRenderer>
-            </div>
-          </article>
-        ))}
-      </ul>
+        <ul className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-8 md:gap-y-12'>
+          {data.allMdx.nodes.slice(1).map((post) => (
+            <BlogPostCard key={post.id} post={post} />
+          ))}
+        </ul>
+      </section>
     </Layout>
   );
 };
@@ -31,9 +32,12 @@ export const query = graphql`
         frontmatter {
           title
           date(formatString: "MMMM D, YYYY")
+          tags
         }
         id
         body
+        excerpt
+        slug
       }
     }
   }
