@@ -1,8 +1,33 @@
 import React from 'react';
+import ProjectItem from '../components/projects/ProjectItem';
 import Layout from '../components/shared/Layout';
+import projectsJson from '../data/projects/projects.json';
+import { reverseArray } from '../utils/reverse-array';
 
 const ProjectsPage: React.FC = () => {
-  return <Layout>Coming Soon</Layout>;
+  const { projects } = projectsJson;
+
+  return (
+    <Layout>
+      <section className='py-10'>
+        <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
+          ~ Projects
+        </h1>
+
+        <ul className='mt-6 grid grid-cols-1 gap-12'>
+          {reverseArray(projects).map((project, idx) => (
+            <li>
+              <ProjectItem
+                key={project.id}
+                project={project}
+                isInverse={idx % 2 == 1}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Layout>
+  );
 };
 
 export default ProjectsPage;

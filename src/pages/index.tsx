@@ -2,12 +2,16 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import BlogPostCard from '../components/blog/BlogPostCard';
 import Header from '../components/home/Header';
+import ProjectItem from '../components/projects/ProjectItem';
 import CallToAction from '../components/shared/CallToAction';
 import Layout from '../components/shared/Layout';
 import WarningAlert from '../components/shared/WarningAlert';
+import projectsJson from '../data/projects/projects.json';
+import { reverseArray } from '../utils/reverse-array';
 
 const IndexPage = ({ data }) => {
   const posts = data.allMdx.nodes;
+  const { projects } = projectsJson;
 
   return (
     <Layout>
@@ -32,12 +36,10 @@ const IndexPage = ({ data }) => {
           />
         )}
 
-        <ul className='grid grid-cols-1 gap-8 mt-6'>
+        <ul className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-6'>
           {posts.map(
             (post, idx) =>
-              idx < 3 && (
-                <BlogPostCard isFirst={true} key={post.id} post={post} />
-              ),
+              idx < 3 && <BlogPostCard key={post.id} post={post} />,
           )}
         </ul>
       </section>
@@ -54,9 +56,20 @@ const IndexPage = ({ data }) => {
           Latest Projects
         </h2>
 
-        <div className='w-full h-60 bg-primary-lighter text-primary mt-2 dark:bg-gray-700 dark:text-gray-200 p-5 flex justify-center items-center rounded-md'>
-          Coming Soon
-        </div>
+        <ul className='mt-6 grid grid-cols-1 gap-12'>
+          {reverseArray(projects).map(
+            (project, idx) =>
+              idx < 3 && (
+                <li>
+                  <ProjectItem
+                    key={project.id}
+                    project={project}
+                    isInverse={idx % 2 == 1}
+                  />
+                </li>
+              ),
+          )}
+        </ul>
       </section>
     </Layout>
   );

@@ -21,7 +21,11 @@ const BlogPage: React.FC<any> = ({ data }) => {
   return (
     <Layout>
       <section className='py-10'>
-        <div className='mb-10'>
+        <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
+          ~ Blog
+        </h1>
+
+        <div className='mb-10 mt-6'>
           <BlogPostCard key={posts[0].id} post={posts[0]} isFirst={true} />
         </div>
 

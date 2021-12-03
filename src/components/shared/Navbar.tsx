@@ -9,6 +9,7 @@ import { Link } from 'gatsby';
 
 const Navbar = () => {
   const [theme, setTheme] = useContext(ThemeContext);
+  const path = location.pathname;
 
   const links = [
     {
@@ -55,8 +56,12 @@ const Navbar = () => {
               {links.map((link) => (
                 <li
                   key={link.title}
-                  className='ml-2 md:ml-3 text-black font-semibold dark:text-white'>
-                  <Link to={link.path}>{link.title}</Link>
+                  className='ml-2 md:ml-3 text-black dark:text-white'>
+                  <Link
+                    className={path === link.path ? 'font-bold' : ''}
+                    to={link.path}>
+                    {link.title}
+                  </Link>
                 </li>
               ))}
 

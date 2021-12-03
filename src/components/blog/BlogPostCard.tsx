@@ -14,7 +14,7 @@ const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
   const heroImage = getImage(post.frontmatter.hero_image);
 
   return (
-    <article className={isFirst && 'md:flex'}>
+    <article className={isFirst ? 'md:flex' : ''}>
       <div className={isFirst ? `md:w-3/5` : 'w-full'}>
         <GatsbyImage
           className='w-full rounded-lg h-64'
@@ -27,7 +27,8 @@ const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
         <ul className={isFirst ? 'md:mt-0 mt-2' : `mt-2`}>
           {post.frontmatter.tags.map((tag, idx) => (
             <TagBadge
-              className={idx !== post.frontmatter.tags.length && 'mr-2'}
+              key={idx}
+              className={idx !== post.frontmatter.tags.length ? 'mr-2' : ''}
               tag={tag}
             />
           ))}

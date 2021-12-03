@@ -26,7 +26,7 @@ const BlogPostPage = ({ data }) => {
             <TagBadge
               key={idx}
               tag={tag}
-              className={idx !== post.frontmatter.tags.length - 1 && 'mr-1'}
+              className={idx !== post.frontmatter.tags.length - 1 ? 'mr-1' : ''}
             />
           ))}
         </div>
