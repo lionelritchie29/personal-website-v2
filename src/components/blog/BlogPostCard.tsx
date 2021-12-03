@@ -1,5 +1,5 @@
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 import { ArrowSmRightIcon } from '@heroicons/react/solid';
 import React from 'react';
 import { BlogPost } from '../../models/blog-post';
@@ -11,13 +11,15 @@ interface Props {
 }
 
 const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
+  const heroImage = getImage(post.frontmatter.hero_image);
+
   return (
     <article className={isFirst && 'md:flex'}>
       <div className={isFirst ? `md:w-3/5` : 'w-full'}>
-        <StaticImage
-          className='w-full rounded-lg'
-          src='https://www.wpbeginner.com/wp-content/uploads/2020/04/featuredimageswp-og.png'
-          alt={post.frontmatter.title}
+        <GatsbyImage
+          className='w-full rounded-lg h-64'
+          image={heroImage}
+          alt={post.frontmatter.hero_image_alt}
         />
       </div>
 
