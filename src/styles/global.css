@@ -1,3 +1,6 @@
+@import '~prismjs/themes/prism-okaidia.css';
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,11 +30,79 @@
     .text-primary-dark {
       color: #ffc25c;
     }
+
+    .bg-primary-dark {
+      background-color: #ffc25c;
+    }
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&display=swap');
-
 body {
   font-family: 'Karla', 'sans-serif';
+}
+
+.markdown h1,
+.markdown h2 {
+  @apply text-2xl;
+  @apply my-6;
+}
+
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  @apply text-xl;
+  @apply my-3;
+}
+
+.markdown a {
+  @apply text-green-400;
+  @apply underline;
+  @apply transition-colors;
+  @apply duration-200;
+}
+
+.markdown a:hover {
+  @apply text-green-200;
+}
+
+.markdown p {
+  @apply mb-6;
+}
+
+/* Lists */
+.markdown ul,
+.markdown ol {
+  @apply mb-4;
+  @apply ml-8;
+}
+
+.markdown li > p,
+.markdown li > ul,
+.markdown li > ol {
+  @apply mb-0;
+}
+
+.markdown ol {
+  @apply list-decimal;
+}
+
+.markdown ul {
+  @apply list-disc;
+}
+
+/* Blockquotes */
+.markdown blockquote {
+  @apply p-6;
+  @apply -mx-6;
+  @apply mb-4;
+  @apply bg-gray-900;
+}
+
+.markdown p {
+  @apply mb-0;
+}
+
+.markdown pre {
+  overflow: auto;
 }

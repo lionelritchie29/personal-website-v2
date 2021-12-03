@@ -9,7 +9,19 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    'gatsby-plugin-mdx',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            // options: {
+            //   classPrefix: 'language-',
+            // },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -14,4 +14,5 @@ export type BlogPost = {
   body: string;
   slug: string;
   excerpt: string;
+  timeToRead: number;
 };
