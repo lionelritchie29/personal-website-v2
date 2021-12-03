@@ -33,12 +33,14 @@ const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
           ))}
         </ul>
 
-        <h1
-          className={`mt-2 font-bold text-primary dark:text-primary-dark font-display ${
-            isFirst ? 'text-2xl' : 'text-xl'
-          }`}>
-          {post.frontmatter.title}
-        </h1>
+        <Link to={`/blog/${post.slug}`}>
+          <h1
+            className={`mt-2 font-bold hover:underline text-primary dark:text-primary-dark font-display ${
+              isFirst ? 'text-2xl' : 'text-xl'
+            }`}>
+            {post.frontmatter.title}
+          </h1>
+        </Link>
         <p className='text-gray-700 dark:text-gray-300 mt-2'>
           {post.excerpt}
           <Link
