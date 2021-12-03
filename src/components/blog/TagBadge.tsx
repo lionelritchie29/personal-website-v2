@@ -8,7 +8,7 @@ interface Props {
 const TagBadge: React.FC<Props> = ({ tag, className }) => {
   return (
     <div
-      className={`inline-block text-sm px-2 py-1 rounded-md text-white bg-blue-500 dark:bg-gray-600 ${className}`}>
+      className={`inline-block text-sm px-2 py-1 rounded-md text-gray-50 bg-blue-500 dark:bg-gray-600 ${className}`}>
       {tag}
     </div>
   );

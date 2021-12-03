@@ -11,7 +11,6 @@ interface Props {
 }
 
 const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
-  console.log(post);
   return (
     <article className={isFirst && 'md:flex'}>
       <div className={isFirst ? `md:w-3/5` : 'w-full'}>
@@ -22,7 +21,7 @@ const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
         />
       </div>
 
-      <div className={isFirst ? `md:w-2/5 md:ml-3` : 'w-full'}>
+      <div className={isFirst ? `md:w-2/5 md:ml-6` : 'w-full'}>
         <ul className={isFirst ? 'md:mt-0 mt-2' : `mt-2`}>
           {post.frontmatter.tags.map((tag, idx) => (
             <TagBadge

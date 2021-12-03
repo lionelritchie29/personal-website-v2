@@ -8,7 +8,7 @@ const IndexPage = () => {
     <Layout>
       <Header />
       <CallToAction
-        className='my-6'
+        className='my-10'
         icon='blog'
         text='I do write blog in my free time, kindly check it out here'
       />
@@ -24,7 +24,7 @@ const IndexPage = () => {
       </section>
 
       <CallToAction
-        className='my-6'
+        className='my-10'
         icon='work'
         text='Check some of my works and personal projects here'
       />

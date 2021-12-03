@@ -2,24 +2,36 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import Layout from '../../components/shared/Layout';
 import BlogPostCard from '../../components/blog/BlogPostCard';
+import WarningAlert from '../../components/shared/WarningAlert';
 
 const BlogPage: React.FC<any> = ({ data }) => {
+  const posts = data.allMdx.nodes;
+
+  if (!posts || !posts.length)
+    return (
+      <Layout>
+        <WarningAlert
+          className='mt-6'
+          header='Ups'
+          content='There is no post'
+        />
+      </Layout>
+    );
+
   return (
     <Layout>
-      <section className='py-6'>
+      <section className='py-10'>
         <div className='mb-10'>
-          <BlogPostCard
-            key={data.allMdx.nodes[0].id}
-            post={data.allMdx.nodes[0]}
-            isFirst={true}
-          />
+          <BlogPostCard key={posts[0].id} post={posts[0]} isFirst={true} />
         </div>
 
-        <ul className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-8 md:gap-y-12'>
-          {data.allMdx.nodes.slice(1).map((post) => (
-            <BlogPostCard key={post.id} post={post} />
-          ))}
-        </ul>
+        {posts.length > 1 && (
+          <ul className='grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-8 md:gap-y-12'>
+            {posts.slice(1).map((post) => (
+              <BlogPostCard key={post.id} post={post} />
+            ))}
+          </ul>
+        )}
       </section>
     </Layout>
   );
