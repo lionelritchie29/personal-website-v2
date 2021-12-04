@@ -7,7 +7,7 @@ import { SunIcon, MoonIcon } from '@heroicons/react/solid';
 import Headroom from 'react-headroom';
 import { Link } from 'gatsby';
 
-const Navbar = () => {
+const Navbar = ({ location }) => {
   const [theme, setTheme] = useContext(ThemeContext);
   const nav = useRef(null);
 
@@ -64,7 +64,9 @@ const Navbar = () => {
                 {links.map((link) => (
                   <li
                     key={link.title}
-                    className='ml-2 md:ml-3 text-black dark:text-white'>
+                    className={`${
+                      location.pathname === link.path ? 'font-bold' : ''
+                    } ml-2 md:ml-3 text-black dark:text-white`}>
                     <Link to={link.path}>{link.title}</Link>
                   </li>
                 ))}

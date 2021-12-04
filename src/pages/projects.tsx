@@ -4,11 +4,11 @@ import Layout from '../components/shared/Layout';
 import projectsJson from '../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
 
-const ProjectsPage: React.FC = () => {
+const ProjectsPage = ({ location }) => {
   const { projects } = projectsJson;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <section className='py-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ Projects

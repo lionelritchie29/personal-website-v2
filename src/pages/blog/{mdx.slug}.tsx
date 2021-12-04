@@ -7,12 +7,12 @@ import { GlobeAltIcon, ArrowLeftIcon } from '@heroicons/react/solid';
 import TagBadge from '../../components/blog/TagBadge';
 import Markdown from '../../components/shared/Markdown';
 
-const BlogPostPage = ({ data }) => {
+const BlogPostPage = ({ data, location }) => {
   const post: BlogPost = data.mdx;
   const heroImage = getImage(post.frontmatter.hero_image);
 
   return (
-    <Layout>
+    <Layout location={location}>
       <section className='py-6'>
         <button
           onClick={() => navigate(-1)}

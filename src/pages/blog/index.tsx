@@ -4,12 +4,12 @@ import Layout from '../../components/shared/Layout';
 import BlogPostCard from '../../components/blog/BlogPostCard';
 import WarningAlert from '../../components/shared/WarningAlert';
 
-const BlogPage: React.FC<any> = ({ data }) => {
+const BlogPage: React.FC<any> = ({ data, location }) => {
   const posts = data.allMdx.nodes;
 
   if (!posts || !posts.length)
     return (
-      <Layout>
+      <Layout location={location}>
         <WarningAlert
           className='mt-6'
           header='Ups'
@@ -19,7 +19,7 @@ const BlogPage: React.FC<any> = ({ data }) => {
     );
 
   return (
-    <Layout>
+    <Layout location={location}>
       <section className='py-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ Blog

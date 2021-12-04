@@ -9,12 +9,12 @@ import WarningAlert from '../components/shared/WarningAlert';
 import projectsJson from '../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({ data, location }) => {
   const posts = data.allMdx.nodes;
   const { projects } = projectsJson;
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Header />
       <CallToAction
         className='my-10'
@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => {
         text='Check some of my works and personal projects '
       />
 
-      <section className='mt-4 pb-12'>
+      <section className='mt-4 pb-6'>
         <h2 className='font-display font-bold text-2xl text-primary dark:text-white'>
           Latest Projects
         </h2>

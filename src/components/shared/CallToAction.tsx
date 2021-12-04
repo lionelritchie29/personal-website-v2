@@ -13,9 +13,9 @@ interface Props {
 const CallToAction: React.FC<Props> = ({ text, icon, className, linkTo }) => {
   const renderIcon =
     icon === 'blog' ? (
-      <AnnotationIcon className='w-24 text-primary dark:text-gray-700' />
+      <AnnotationIcon className='w-24 text-primary-lighter dark:text-gray-700' />
     ) : (
-      <BriefcaseIcon className='w-24 text-primary dark:text-gray-700' />
+      <BriefcaseIcon className='w-24 text-primary-lighter dark:text-gray-700' />
     );
 
   return (

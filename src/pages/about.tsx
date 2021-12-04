@@ -3,10 +3,10 @@ import React from 'react';
 import CallToAction from '../components/shared/CallToAction';
 import Layout from '../components/shared/Layout';
 
-const AboutPage: React.FC = () => {
+const AboutPage = ({ location }) => {
   return (
-    <Layout>
-      <section className='py-10'>
+    <Layout location={location}>
+      <section className='pt-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ About
         </h1>
@@ -45,14 +45,30 @@ const AboutPage: React.FC = () => {
               progress while learning web development, as well to showcase my
               works.
             </p>
+
+            <p>
+              If you need my help in creating a website / web application for
+              your portfolio or business, feel free to contact me through my
+              <b>email</b>{' '}
+              <a href='mailto: lionelrtchieee@gmail.com' className='underline'>
+                here
+              </a>{' '}
+              (lionelrtchieee@gmail.com) or my <b>Line</b>{' '}
+              <a
+                href='https://line.me/ti/p/lionelritchiee'
+                className='underline'>
+                here
+              </a>{' '}
+              (line id: lionelritchiee).
+            </p>
           </div>
         </div>
 
         <CallToAction
+          linkTo='/projects'
           className='my-10'
-          icon='blog'
-          text='I do write blog in my free time, kindly check it out '
-          linkTo='/blog'
+          icon='work'
+          text='Check some of my works and personal projects '
         />
       </section>
     </Layout>
