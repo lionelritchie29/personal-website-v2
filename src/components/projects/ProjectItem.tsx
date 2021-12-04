@@ -12,9 +12,9 @@ interface Props {
 const ProjectItem: React.FC<Props> = ({ className, project }) => {
   return (
     <div
-      className={`md:flex border border-gray-100 dark:border-gray-700 rounded-lg p-3 shadow-sm ${className}`}>
+      className={`md:flex border border-gray-200 dark:border-gray-700 rounded-lg p-3 dark:shadow-sm ${className}`}>
       <img
-        className='w-full h-80 object-cover shadow-md rounded-lg md:w-1/3'
+        className='w-full h-80 object-cover border border-gray-200 dark:border-gray-700 rounded-lg md:w-1/3'
         src={project.imageUrl}
         alt={project.name}
       />
