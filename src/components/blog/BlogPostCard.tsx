@@ -17,7 +17,7 @@ const BlogPostCard: React.FC<Props> = ({ post, isFirst }) => {
     <article className={isFirst ? 'md:flex' : ''}>
       <div className={isFirst ? `md:w-3/5` : 'w-full'}>
         <GatsbyImage
-          className='w-full rounded-lg h-64'
+          className='w-full rounded-lg h-64 shadow'
           image={heroImage}
           alt={post.frontmatter.hero_image_alt}
         />

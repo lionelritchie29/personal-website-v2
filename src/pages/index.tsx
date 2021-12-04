@@ -56,17 +56,12 @@ const IndexPage = ({ data }) => {
           Latest Projects
         </h2>
 
-        <ul className='mt-6 grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6'>
+        <ul className='mt-6 grid grid-cols-1 gap-6'>
           {reverseArray(projects).map(
             (project, idx) =>
               idx < 3 && (
-                <li>
-                  <ProjectItem
-                    key={project.id}
-                    project={project}
-                    isInverse={idx % 2 == 1}
-                    forShowcase={true}
-                  />
+                <li key={project.id}>
+                  <ProjectItem project={project} />
                 </li>
               ),
           )}

@@ -14,14 +14,10 @@ const ProjectsPage: React.FC = () => {
           ~ Projects
         </h1>
 
-        <ul className='mt-6 grid grid-cols-1 gap-12'>
+        <ul className='mt-6 grid grid-cols-1 gap-6'>
           {reverseArray(projects).map((project, idx) => (
-            <li>
-              <ProjectItem
-                key={project.id}
-                project={project}
-                isInverse={idx % 2 == 1}
-              />
+            <li key={project.id}>
+              <ProjectItem project={project} />
             </li>
           ))}
         </ul>

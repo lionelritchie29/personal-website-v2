@@ -9,33 +9,19 @@ interface Props {
   forShowcase?: boolean;
 }
 
-const ProjectItem: React.FC<Props> = ({
-  className,
-  isInverse,
-  project,
-  forShowcase,
-}) => {
+const ProjectItem: React.FC<Props> = ({ className, project }) => {
   return (
     <div
-      className={`md:flex  ${
-        isInverse && !forShowcase ? 'flex-row-reverse' : ''
-      } ${forShowcase ? 'flex-col' : ''} ${className}`}>
+      className={`md:flex border border-gray-100 dark:border-gray-700 rounded-lg p-3 shadow-sm ${className}`}>
       <img
-        className={`w-full h-80 object-cover shadow-md rounded-lg ${
-          forShowcase ? '' : 'md:w-1/3'
-        }`}
+        className='w-full h-80 object-cover shadow-md rounded-lg md:w-1/3'
         src={project.imageUrl}
         alt={project.name}
       />
 
-      <div
-        className={`w-full ${forShowcase ? '' : 'md:w-2/3'} ${
-          isInverse && !forShowcase ? 'md:mr-8' : ''
-        } ${!isInverse && !forShowcase ? 'md:ml-8' : ''}`}>
+      <div className='w-full md:w-2/3 md:ml-10'>
         <a
-          className={`block font-display mt-3 text-xl text-primary dark:text-primary-dark font-bold hover:underline ${
-            forShowcase ? '' : 'md:mt-0'
-          }`}
+          className='block font-display mt-3 text-xl text-primary dark:text-primary-dark font-bold hover:underline md:mt-0'
           href={project.link}
           target='_blank  '>
           {project.name} <ExternalLinkIcon className='inline w-5 h-5' />
