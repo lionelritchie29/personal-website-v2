@@ -25,6 +25,8 @@ const AboutPage = ({ location }) => {
     },
   };
 
+  if (typeof window === 'undefined') return <div>Window is undefined</div>;
+
   return (
     <Layout location={location}>
       <section className='pt-10'>
