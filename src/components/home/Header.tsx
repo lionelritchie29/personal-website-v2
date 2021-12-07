@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import OutlineButton from '../shared/OutlineButton';
 
@@ -22,7 +23,9 @@ const Header: React.FC = () => {
       </p>
 
       <div className='mt-6'>
-        <OutlineButton text='Contact Me' />
+        <Link to='/about'>
+          <OutlineButton text='Contact Me' />
+        </Link>
       </div>
     </section>
   );

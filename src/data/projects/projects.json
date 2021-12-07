@@ -55,6 +55,13 @@
       "desc": "I created this to fullfil the final project for Human and Computer Interaction course, which was to create a website about K-Pop Album and Merchandise Shop",
       "imageUrl": "https://i.ibb.co/Zxnt2VY/store-del-luna-3e36d2e7.jpg",
       "link": "https://final-project-hci.netlify.app/"
+    },
+    {
+      "id": 9,
+      "name": "Ladaa",
+      "desc": "An app to search information about recipes, such as how to cook it, ingredients needed, meal planner, etc. Made with React for my college's entrepreneurship project.",
+      "imageUrl": "https://i.ibb.co/6g68Y6p/New-Project.jpg",
+      "link": "https://ladaa.netlify.app/"
     }
   ]
 }

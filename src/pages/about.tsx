@@ -69,23 +69,32 @@ const AboutPage = ({ location }) => {
               works.
             </p>
 
-            <p>
-              If you need my help in creating a website / web application for
-              your portfolio or business, feel free to contact me through my{' '}
-              <b>email</b>{' '}
-              <a
-                href='inline-block mailto: lionelrtchieee@gmail.com'
-                className='underline'>
-                here
-              </a>{' '}
-              (lionelrtchieee@gmail.com) or my <b>Line</b>{' '}
-              <a
-                href='https://line.me/ti/p/lionelritchiee'
-                className='underline'>
-                here
-              </a>{' '}
-              (line id: lionelritchiee).
-            </p>
+            <div>
+              <h2 className='text-primary dark:text-primary-dark text-xl font-bold font-display'>
+                Contact
+              </h2>
+
+              <p>
+                If you need my help in creating a website / web application for
+                your portfolio or business, feel free to contact me through{' '}
+                <span className='text-primary dark:text-primary-dark'>
+                  my <b>email</b>{' '}
+                  <a
+                    href='inline-block mailto: lionelrtchieee@gmail.com'
+                    className='underline'>
+                    here
+                  </a>{' '}
+                  (lionelrtchieee@gmail.com) or my <b>Line</b>{' '}
+                  <a
+                    href='https://line.me/ti/p/lionelritchiee'
+                    className='underline'
+                    target='_blank'>
+                    here
+                  </a>{' '}
+                  (line id: lionelritchiee).
+                </span>
+              </p>
+            </div>
           </div>
         </div>
 
