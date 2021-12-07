@@ -29,7 +29,8 @@
     "prismjs": "^1.25.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-headroom": "^3.2.0"
+    "react-headroom": "^3.2.0",
+    "tiny-slider-react": "^0.5.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

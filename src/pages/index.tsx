@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import * as React from 'react';
 import BlogPostCard from '../components/blog/BlogPostCard';
 import Header from '../components/home/Header';
@@ -16,12 +16,12 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Header />
-      <CallToAction
-        className='my-10'
-        icon='blog'
-        text='I do write blog in my free time, kindly check it out '
-        linkTo='/blog'
-      />
+      <CallToAction className='my-10' icon='blog'>
+        I do write blog in my free time, kindly check it out{' '}
+        <Link className='underline' to='/blog'>
+          here
+        </Link>
+      </CallToAction>
 
       <section>
         <h2 className='font-display font-bold text-2xl dark:text-white'>
@@ -44,12 +44,12 @@ const IndexPage = ({ data, location }) => {
         </ul>
       </section>
 
-      <CallToAction
-        linkTo='/projects'
-        className='my-10'
-        icon='work'
-        text='Check some of my works and personal projects '
-      />
+      <CallToAction className='my-10' icon='work'>
+        Check some of my works and personal projects{' '}
+        <Link className='underline' to='/projects'>
+          here
+        </Link>
+      </CallToAction>
 
       <section className='mt-4 pb-6'>
         <h2 className='font-display font-bold text-2xl text-primary dark:text-white'>

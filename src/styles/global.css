@@ -110,3 +110,16 @@ body {
 .markdown pre {
   overflow: auto;
 }
+
+.tns-controls {
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+.tns-controls > button {
+  @apply px-2 py-1 bg-primary-light dark:bg-primary-dark text-white dark:text-gray-700 rounded-md;
+}
+
+.tns-controls > button:first-child {
+  @apply mr-2;
+}

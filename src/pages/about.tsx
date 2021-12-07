@@ -2,8 +2,29 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import CallToAction from '../components/shared/CallToAction';
 import Layout from '../components/shared/Layout';
+import { Link } from 'gatsby';
+import technologiesJson from '../data/technologies.json';
+import TechnologyCard from '../components/about/TechnologyCard';
+import TinySlider from 'tiny-slider-react';
 
 const AboutPage = ({ location }) => {
+  const { technologies } = technologiesJson;
+
+  const sliderSettings = {
+    items: 3,
+    mouseDrag: true,
+    gutter: 10,
+    controlsPosition: 'bottom',
+    responsive: {
+      768: {
+        items: 6,
+      },
+      1024: {
+        items: 8,
+      },
+    },
+  };
+
   return (
     <Layout location={location}>
       <section className='pt-10'>
@@ -48,9 +69,11 @@ const AboutPage = ({ location }) => {
 
             <p>
               If you need my help in creating a website / web application for
-              your portfolio or business, feel free to contact me through my
+              your portfolio or business, feel free to contact me through my{' '}
               <b>email</b>{' '}
-              <a href='mailto: lionelrtchieee@gmail.com' className='underline'>
+              <a
+                href='inline-block mailto: lionelrtchieee@gmail.com'
+                className='underline'>
                 here
               </a>{' '}
               (lionelrtchieee@gmail.com) or my <b>Line</b>{' '}
@@ -64,12 +87,31 @@ const AboutPage = ({ location }) => {
           </div>
         </div>
 
-        <CallToAction
-          linkTo='/projects'
-          className='my-10'
-          icon='work'
-          text='Check some of my works and personal projects '
-        />
+        <CallToAction className='my-10' icon='blog'>
+          I do write blog in my free time, kindly check it out{' '}
+          <Link className='underline' to='/blog'>
+            here
+          </Link>
+        </CallToAction>
+
+        <div>
+          <h2 className='text-primary dark:text-primary-dark text-xl font-bold font-display'>
+            Technologies
+          </h2>
+
+          <TinySlider settings={sliderSettings}>
+            {technologies.map((tech) => (
+              <TechnologyCard key={tech.name} tech={tech} />
+            ))}
+          </TinySlider>
+        </div>
+
+        <CallToAction className='my-10' icon='work'>
+          Check some of my works and personal projects{' '}
+          <Link className='inline-block underline' to='/projects'>
+            here
+          </Link>
+        </CallToAction>
       </section>
     </Layout>
   );
