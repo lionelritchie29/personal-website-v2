@@ -1,7 +1,7 @@
 import React from 'react';
 import ProjectItem from '../components/projects/ProjectItem';
 import Layout from '../components/shared/Layout';
-import projectsJson from '../data/projects/projects.json';
+import projectsJson from '../../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
 
 const ProjectsPage = ({ location }) => {

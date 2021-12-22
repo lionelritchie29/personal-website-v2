@@ -62,6 +62,13 @@
       "desc": "An app to search information about recipes, such as how to cook it, ingredients needed, meal planner, etc. Made with React for my college's entrepreneurship project.",
       "imageUrl": "https://i.ibb.co/6g68Y6p/New-Project.jpg",
       "link": "https://ladaa.netlify.app/"
+    },
+    {
+      "id": 10,
+      "name": "Pollarow.ID",
+      "desc": "Landing page for @pollarow.id",
+      "imageUrl": "https://i.ibb.co/Q6XPTbB/pollarow.jpg",
+      "link": "https://pollarow.netlify.app/"
     }
   ]
 }

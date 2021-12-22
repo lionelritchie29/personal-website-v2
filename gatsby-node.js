@@ -18,3 +18,24 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
     });
   }
 };
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type MdxFrontmatter implements Node {
+      date: String
+      tags: [String]
+      hero_image_alt: String
+      hero_image_credit_text: String
+      hero_image_credit_link: String
+      hero_image: HeroImage
+    }
+    type HeroImage {
+      childImageSharp: GatsbyImageData
+    }
+    type GatsbyImageData {
+      gatsbyImageData: String
+    }
+  `;
+  createTypes(typeDefs);
+};

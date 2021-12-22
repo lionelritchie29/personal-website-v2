@@ -3,7 +3,7 @@ import React from 'react';
 import CallToAction from '../components/shared/CallToAction';
 import Layout from '../components/shared/Layout';
 import { Link } from 'gatsby';
-import technologiesJson from '../data/technologies.json';
+import technologiesJson from '../../data/technologies.json';
 import TechnologyCard from '../components/about/TechnologyCard';
 import TinySlider from 'tiny-slider-react';
 

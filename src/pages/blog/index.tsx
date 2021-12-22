@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 import Layout from '../../components/shared/Layout';
 import BlogPostCard from '../../components/blog/BlogPostCard';
-import WarningAlert from '../../components/shared/WarningAlert';
+import InfoAlert from '../../components/shared/InfoAlert';
 
 const BlogPage: React.FC<any> = ({ data, location }) => {
   const posts = data.allMdx.nodes;
@@ -10,10 +10,10 @@ const BlogPage: React.FC<any> = ({ data, location }) => {
   if (!posts || !posts.length)
     return (
       <Layout location={location}>
-        <WarningAlert
+        <InfoAlert
           className='mt-6'
-          header='Ups'
-          content='There is no post'
+          header='Coming soon 🚀'
+          content='There is currently no post'
         />
       </Layout>
     );
@@ -47,7 +47,7 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          date(formatString: "MMMM D, YYYY")
+          date
           tags
           hero_image_alt
           hero_image_credit_text

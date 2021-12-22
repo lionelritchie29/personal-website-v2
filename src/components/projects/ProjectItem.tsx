@@ -1,4 +1,5 @@
 import { ExternalLinkIcon } from '@heroicons/react/solid';
+
 import React from 'react';
 import { ProjectItem as ProjectItemModel } from '../../models/project-item';
 
@@ -19,7 +20,7 @@ const ProjectItem: React.FC<Props> = ({ className, project }) => {
         alt={project.name}
       />
 
-      <div className='w-full md:w-2/3 md:ml-10'>
+      <div className='w-full md:w-2/3 md:ml-4'>
         <a
           className='block font-display mt-3 text-xl text-primary dark:text-primary-dark font-bold hover:underline md:mt-0'
           href={project.link}

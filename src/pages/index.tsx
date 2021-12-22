@@ -5,9 +5,9 @@ import Header from '../components/home/Header';
 import ProjectItem from '../components/projects/ProjectItem';
 import CallToAction from '../components/shared/CallToAction';
 import Layout from '../components/shared/Layout';
-import WarningAlert from '../components/shared/WarningAlert';
-import projectsJson from '../data/projects/projects.json';
+import projectsJson from '../../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
+import InfoAlert from '../components/shared/InfoAlert';
 
 const IndexPage = ({ data, location }) => {
   const posts = data.allMdx.nodes;
@@ -29,17 +29,19 @@ const IndexPage = ({ data, location }) => {
         </h2>
 
         {(!posts || !posts.length) && (
-          <WarningAlert
+          <InfoAlert
             className='mt-6'
-            header='Ups'
+            header='Coming soon 🚀'
             content='There is currently no post'
           />
         )}
 
-        <ul className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-6'>
+        <ul className='grid grid-cols-1 gap-8 mt-6'>
           {posts.map(
             (post, idx) =>
-              idx < 3 && <BlogPostCard key={post.id} post={post} />,
+              idx < 3 && (
+                <BlogPostCard isFirst={true} key={post.id} post={post} />
+              ),
           )}
         </ul>
       </section>
@@ -77,7 +79,7 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          date(formatString: "MMMM D, YYYY")
+          date
           tags
           hero_image_alt
           hero_image_credit_text
