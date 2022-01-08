@@ -6,6 +6,7 @@ import { Link } from 'gatsby';
 import technologiesJson from '../../data/technologies.json';
 import TechnologyCard from '../components/about/TechnologyCard';
 import TinySlider from 'tiny-slider-react';
+import { Helmet } from 'react-helmet';
 
 const AboutPage = ({ location }) => {
   const { technologies } = technologiesJson;
@@ -29,6 +30,10 @@ const AboutPage = ({ location }) => {
 
   return (
     <Layout location={location}>
+      <Helmet>
+        <title>About - Lionel Ritchie</title>
+      </Helmet>
+
       <section className='pt-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ About

@@ -3,12 +3,17 @@ import ProjectItem from '../components/projects/ProjectItem';
 import Layout from '../components/shared/Layout';
 import projectsJson from '../../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
+import { Helmet } from 'react-helmet';
 
 const ProjectsPage = ({ location }) => {
   const { projects } = projectsJson;
 
   return (
     <Layout location={location}>
+      <Helmet>
+        <title>Projects - Lionel Ritchie</title>
+      </Helmet>
+
       <section className='py-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ Projects

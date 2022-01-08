@@ -3,6 +3,7 @@ import * as React from 'react';
 import Layout from '../../components/shared/Layout';
 import BlogPostCard from '../../components/blog/BlogPostCard';
 import InfoAlert from '../../components/shared/InfoAlert';
+import { Helmet } from 'react-helmet';
 
 const BlogPage: React.FC<any> = ({ data, location }) => {
   const posts = data.allMdx.nodes;
@@ -20,6 +21,10 @@ const BlogPage: React.FC<any> = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <Helmet>
+        <title>Blog - Lionel Ritchie</title>
+      </Helmet>
+
       <section className='py-10'>
         <h1 className='font-display text-4xl text-primary dark:text-primary-dark font-bold'>
           ~ Blog

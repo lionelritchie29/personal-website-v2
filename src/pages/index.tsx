@@ -8,6 +8,7 @@ import Layout from '../components/shared/Layout';
 import projectsJson from '../../data/projects/projects.json';
 import { reverseArray } from '../utils/reverse-array';
 import InfoAlert from '../components/shared/InfoAlert';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = ({ data, location }) => {
   const posts = data.allMdx.nodes;
@@ -15,6 +16,10 @@ const IndexPage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
+      <Helmet>
+        <title>Home - Lionel Ritchie</title>
+      </Helmet>
+
       <Header />
       <CallToAction className='my-10' icon='blog'>
         I do write blog in my free time, kindly check it out{' '}
