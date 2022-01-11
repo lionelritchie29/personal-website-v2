@@ -3,9 +3,9 @@ title: 'Build Reusable Dynamic Modal with React Context API'
 date: '2022-01-11'
 tags: ['React']
 hero_image: './hero.jpg'
-hero_image_alt: 'Dummy Hero Image'
-hero_image_credit_text: 'Test'
-hero_image_credit_link: 'https://test.com'
+hero_image_alt: 'Hero Image by Lautaro Andreani from Unsplash'
+hero_image_credit_text: 'by Lautaro Andreani from Unsplash'
+hero_image_credit_link: 'https://unsplash.com/photos/xkBaqlcqeb4'
 ---
 
 I have experimented several different method of creating a reusable modal with React, but I often find it only work for one or two use cases, 
@@ -306,3 +306,5 @@ Now, when we click the close button, the modal will disappear.
 Well, that's all about it!. What's so good about this approach is that we could pass a component with its 
 own state to the `showModal` function. For example, I could create a **ConfirmationModalContent** component which will always have some text with a *Next* and *Cancel* button, 
 and pass it as a parameter to the `showModal` function.
+
+Source code: https://github.com/lionelritchie29/react-reusable-modal-example

@@ -48,7 +48,19 @@ const BlogPostPage = ({ data, location }) => {
             className='w-full rounded-lg'
             image={heroImage}
             alt={post.frontmatter.hero_image_alt}
+            title={post.frontmatter.hero_image_credit_text}
           />
+          <div className='text-center text-sm'>
+            <small className=' dark:text-gray-300'>
+              Cover photo from{' '}
+              <a
+                target='_blank'
+                className='underline'
+                href={post.frontmatter.hero_image_credit_link}>
+                {post.frontmatter.hero_image_credit_link}
+              </a>
+            </small>
+          </div>
 
           <div className='mt-4 text-justify dark:text-gray-300'>
             <Markdown body={post.body} />
