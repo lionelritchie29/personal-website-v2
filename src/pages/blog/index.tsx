@@ -52,7 +52,7 @@ export const query = graphql`
       nodes {
         frontmatter {
           title
-          date
+          date(formatString: "MMMM D, YYYY")
           tags
           hero_image_alt
           hero_image_credit_text

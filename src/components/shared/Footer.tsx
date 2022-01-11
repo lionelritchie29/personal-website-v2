@@ -20,7 +20,7 @@ const Footer = () => {
   return (
     <Container className='flex justify-between py-3 items-center'>
       <div className='text-gray-700 dark:text-gray-200'>
-        Powered by GatsbyJS <span className='text-red-700'>❤</span>
+        Made with GatsbyJS <span className='text-red-700'>❤</span>
       </div>
       <div className='flex'>
         {links.map((link) => (
