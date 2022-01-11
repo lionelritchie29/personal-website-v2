@@ -11,6 +11,10 @@ const Layout = ({ children, location }) => {
       <Helmet>
         <meta charSet='utf-8' />
         <meta name='description' content="Lionel Ritchie's Personal Website" />
+        <meta
+          name='google-site-verification'
+          content='V5rEvAcpkptmx_qPOo2kedepOUulvn302fNq3lavW5M'
+        />
       </Helmet>
 
       <Navbar location={location} />
