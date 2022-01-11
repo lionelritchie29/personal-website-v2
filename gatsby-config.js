@@ -33,6 +33,16 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: ['G-2HEZ11B0LK'],
+        gtagConfig: {
+          anonymize_ip: true,
+          cookie_expires: 0,
+        },
+      },
+    },
     'gatsby-plugin-dark-mode',
     'gatsby-plugin-postcss',
     'gatsby-plugin-image',
