@@ -1,0 +1,295 @@
+---
+title: 'Build Reusable Dynamic Modal with React Context API'
+date: '2022-01-08'
+tags: ['React']
+hero_image: './hero.jpg'
+hero_image_alt: 'Dummy Hero Image'
+hero_image_credit_text: 'Test'
+hero_image_credit_link: 'https://test.com'
+---
+
+I have experimented several different method of creating a reusable modal with React, and I finally found out a method where I
+could create a reusable modal with dynamic content only with one base modal.
+
+The idea is we will create one base modal for us, to create the backdrop and padding for the content.
+
+So, let's get started.
+
+# 1. Preparation
+
+If you want to implement this in your own running project, then skip this step. This step is basically just bootstrapping React with Vite, 
+and setting some UI template to be used later.
+(I recommend you guys to use Vite by the way, because it's just really fast 🚀). 
+
+## Bootstrapping new React App
+
+So, let's create a new React app by using Vite. Open your terminal, and execute this command:
+
+```shell
+npm init vite@latest react-reusable-modal-example --template react
+```
+
+This will create a minimalist and ready-to-run React app for us. Move to the created directory and install the dependencies.
+```shell
+cd react-reusable-modal-example
+```
+```shell
+npm install
+```
+
+Next, let's run the app.
+```shell
+npm run dev
+```
+
+Open the project in your prefered text editor (I use Visual Studio Code) and remove everything from `src/App.jsx` and `src/App.css` since we don't need it.
+
+## Create a Trigger Button
+Before we implement the modal, let's create a simple button first. at `src/App.jsx`, 
+create a button that will be placed in the center of the screen. This button will act as a trigger to show the modal.
+
+```shell
+import React from 'react';
+
+const mainStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '100vh',
+  background: '#8946A6',
+};
+
+const buttonStyle = {
+  padding: '0.75rem 1.25rem ',
+  border: 'none',
+  background: '#4C0070',
+  color: '#FFFFFF',
+  fontSize: '1.1rem',
+  borderRadius: '0.5rem',
+  cursor: 'pointer',
+};
+
+const App = () => {
+  return (
+    <main style={mainStyle}>
+      <button style={buttonStyle}>Click Me!</button>
+    </main>
+  );
+};
+
+export default App;
+```
+
+# 2. Implementation
+
+## Create our base modal component
+
+Create a new jsx file at `src/components/Modal.jsx`, this will be our base modal component. 
+
+```shell
+import React from 'react';
+
+const modalStyle = {
+  position: 'fixed',
+  width: '100%',
+  height: '100vh',
+  top: 0,
+  left: 0,
+  background: 'rgba(0,0,0,0.75)',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+};
+
+const modalContentStyle = {
+  background: '#FFFFFF',
+  padding: '1rem',
+  borderRadius: '0.5rem',
+  minWidth: '50%',
+  maxWidth: '90%',
+};
+
+const Modal = ({ children }) => {
+  return (
+    <div style={modalStyle}>
+      <div style={modalContentStyle}>{children}</div>
+    </div>
+  );
+};
+
+export default Modal;
+```
+
+To make sure it work, place it in `src/App.jsx`. You should see how our base modal looks. Notice that we use *children* prop in the component so it can render dynamic content for us. 
+You will see how this works out in the next section.
+
+**IMPORTANT**! If our base modal looks good, then remove it from the code, since we will not use it there.
+
+```shell
+...
+
+const App = () => {
+  return (
+    <>
+      <Modal>Content</Modal>
+      <main style={mainStyle}>
+        <button style={buttonStyle}>Click Me!</button>
+      </main>
+    </>
+  );
+};
+
+```
+
+## Create our modal provider
+
+React uses provider pattern in its Context API to share data across the descendant node in the component tree. We can utilize this 
+to create our own modal provider which will hold our state for current active modal.
+
+Create a new jsx file at `src/providers/ModalProvider.jsx`. This will control the state of our modal and share it to its children
+by using the Context API.
+
+
+```shell
+const ModalContext = createContext(null);
+```
+
+Then, create a new state, to store the data for our current modal.
+```shell
+const [modal, setModal] = useState({
+    show: false,
+    content: <div></div>,
+  });
+```
+
+Create some helper function.
+
+```shell
+const showModal = (content) => {
+    setModal({
+      show: true,
+      content,
+    });
+  };
+
+  const closeModal = () => {
+    setModal({
+      show: false,
+      content: <div></div>,
+    });
+  };
+```
+
+Finally, return our context provider and set the `openModal` and `closeModal` function as its value, so it could be used by descendant component 
+in the component trees.
+
+```
+import React, { createContext, useState } from 'react';
+
+const ModalContext = createContext(null);
+
+const ModalProvider = ({children}) => {
+  const [modal, setModal] = useState({
+    show: false,
+    content: <div></div>,
+  });
+
+  const showModal = (content) => {
+    setModal({
+      show: true,
+      content,
+    });
+  };
+
+  const closeModal = () => {
+    setModal({
+      show: false,
+      content: <div></div>,
+    });
+  };
+
+  return (
+    <ModalContext.Provider value={[showModal, closeModal]}>
+        {children}
+      </ModalContext.Provider>
+  );
+};
+
+export default ModalProvider;
+```
+
+Now, we could combine our recently created modal component with the provider. See the code below:
+
+```
+const ModalProvider = ({children}) => {
+  ...
+
+  return (
+    <ModalContext.Provider value={[showModal, closeModal]}>
+      {modal.show && <Modal>{modal.content}</Modal>}
+      {children}
+    </ModalContext.Provider>
+  );
+};
+```
+
+# 3. Usage 
+
+Let's implement the functionality of our newly created modal provider. First, we need to wrap our App component inside the `ModalProvider`, so 
+let's open `src/main.jsx`, which call our App component, and wrap it using `ModalProvider` component.
+
+```shell
+...
+import ModalProvider from './providers/ModalProvider';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ModalProvider>
+      <App />
+    </ModalProvider>
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
+```
+
+Then, open `src/App.jsx`, let's use the context and set our button's click listener to call the `showModal()` function that we get from the context.
+
+```shell
+const App = () => {
+  const [showModal, closeModal] = useContext(ModalContext);
+
+  const showDummyModal = () => {
+    const content = <div>Hello, Life is good!</div>;
+    showModal(content);
+  };
+
+  return (
+    <main style={mainStyle}>
+      <button style={buttonStyle} onClick={() => showDummyModal()}>
+        Click Me!
+      </button>
+    </main>
+  );
+};
+```
+
+**Voila!**, our our dynamic modal is working beautifully. What's so good about this approach is we could pass another component with its 
+own state as the to the `showModal`.
+
+Now, to finish the it. Let's add a close button for the modal content, and set its onClick method to call the `closeModal` function.
+
+```shell
+const showDummyModal = () => {
+    const content = (
+      <div>
+        <div>Hello, Life is good!</div>
+        <button onClick={() => closeModal()}>Close</button>
+      </div>
+    );
+    showModal(content);
+  };
+```
+
+Now, when we click the close button, the modal will disappear.
+
+I think that's all I can share, cheers.

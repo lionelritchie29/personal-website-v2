@@ -4,24 +4,6 @@ module.exports = {
     title: 'Lionel Personal Portfolio',
   },
   plugins: [
-    'gatsby-plugin-dark-mode',
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-image',
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-prismjs',
-            // options: {
-            //   classPrefix: 'language-',
-            // },
-          },
-        ],
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -39,13 +21,22 @@ module.exports = {
       __key: 'blog',
     },
     {
-      resolve: `gatsby-plugin-nprogress`,
+      resolve: 'gatsby-plugin-mdx',
       options: {
-        // Setting a color is optional.
-        color: `tomato`,
-        // Disable the loading spinner.
-        showSpinner: false,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            // options: {
+            //   classPrefix: 'language-',
+            // },
+          },
+        ],
       },
     },
+    'gatsby-plugin-dark-mode',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ],
 };
